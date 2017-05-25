@@ -92,7 +92,7 @@ func (m *MsgHeader) LooksReal() bool {
 	if m.MessageLength > MaxMessageSize || m.MessageLength < 24 {
 		return false
 	}
-	if m.RequestID < 0 {
+	if m.RequestID < 0 && m.ResponseTo <= 0 {
 		return false
 	}
 	if m.ResponseTo < 0 {
